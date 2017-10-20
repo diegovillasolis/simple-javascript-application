@@ -3,20 +3,26 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatTableModule, MatInputModule, MatButtonModule, MatIconModule, MatCardModule, MatCheckboxModule, MatSidenavModule } from '@angular/material';
+import { MatToolbarModule, MatTableModule, MatInputModule, MatButtonModule, MatIconModule, MatCardModule, MatCheckboxModule, MatSidenavModule, MatExpansionModule, MatListModule } from '@angular/material';
+
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
 import { ListCarComponent } from './components/list-car/list-car.component';
-import { ComparatorCarComponent } from './components/dashboard/comparator-car.component';
-import { ItemCarComponent } from './components/item-car/item-car.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+const routes: Routes = [
+  {
+    path: '', component: ListCarComponent, pathMatch: 'full'
+  }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     ListCarComponent,
-    ComparatorCarComponent,
-    ItemCarComponent    
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,9 @@ import { ItemCarComponent } from './components/item-car/item-car.component';
     MatIconModule, 
     MatCardModule, 
     MatCheckboxModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatExpansionModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
